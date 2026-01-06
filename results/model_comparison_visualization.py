@@ -75,12 +75,16 @@ def load_all_model_metrics():
     Falls Metriken nicht extrahiert werden können, werden Beispielwerte verwendet
     """
     notebooks = {
-        'XGBoost Binary': 'xgboost-binary-classification-final.ipynb',
-        'XGBoost Multiclass': 'xgboost-multiclass-classification-final.ipynb',
-        'Random Forest Binary': 'random-forest-binary-classification-final.ipynb',
-        'Random Forest Multiclass': 'random-forest-multiclass-classification-final.ipynb',
-        'TabNet Binary': 'tabnet-binary-classification-final.ipynb',
-        'TabNet Multiclass': 'tabnet-multiclass-classification-final.ipynb',
+        'XGBoost Binary': '../binary-classification/xgboost-binary-classification-final.ipynb',
+        'XGBoost Multiclass': '../multiclass-classification/xgboost-multiclass-classification-final.ipynb',
+        'Random Forest Binary': '../binary-classification/random-forest-binary-classification-final.ipynb',
+        'Random Forest Multiclass': '../multiclass-classification/random-forest-multiclass-classification-final.ipynb',
+        'TabNet Binary': '../binary-classification/tabnet-binary-classification-final.ipynb',
+        'TabNet Multiclass': '../multiclass-classification/tabnet-multiclass-classification-final.ipynb',
+        'Logistic Regression Binary': '../binary-classification/logistic-regression-binary-classification-final.ipynb',
+        'Logistic Regression Multiclass': '../multiclass-classification/logistic-regression-multiclass-classification-final.ipynb',
+        'SVM Binary': '../binary-classification/support-vector-machine-binary-classification-final.ipynb',
+        'SVM Multiclass': '../multiclass-classification/support-vector-machine-multiclass-classification-final.ipynb',
     }
     
     models_data = {}
@@ -153,6 +157,38 @@ def get_default_metrics(model_name):
             'average_precision': 0.7000,
             'recall': 0.4519,
             'precision': 0.4600
+        },
+        'Logistic Regression Binary': {
+            'accuracy': 0.7500,
+            'balanced_accuracy': 0.7000,
+            'f1_score': 0.8200,
+            'roc_auc': 0.6800,
+            'average_precision': 0.7300
+        },
+        'Logistic Regression Multiclass': {
+            'accuracy': 0.5500,
+            'balanced_accuracy': 0.4800,
+            'f1_score': 0.4900,
+            'roc_auc': 0.6500,
+            'average_precision': 0.6900,
+            'recall': 0.4800,
+            'precision': 0.4700
+        },
+        'SVM Binary': {
+            'accuracy': 0.7600,
+            'balanced_accuracy': 0.7100,
+            'f1_score': 0.8300,
+            'roc_auc': 0.6900,
+            'average_precision': 0.7400
+        },
+        'SVM Multiclass': {
+            'accuracy': 0.5600,
+            'balanced_accuracy': 0.4900,
+            'f1_score': 0.5000,
+            'roc_auc': 0.6600,
+            'average_precision': 0.7000,
+            'recall': 0.4900,
+            'precision': 0.4800
         }
     }
     default_fallback = {
@@ -361,7 +397,8 @@ def plot_multiclass_metrics_comparison(models_data, figsize=(14, 10)):
     
     models_data: dict mit Modell-Metriken
     """
-    multiclass_models = ['XGBoost Multiclass', 'Random Forest Multiclass', 'TabNet Multiclass']
+    multiclass_models = ['XGBoost Multiclass', 'Random Forest Multiclass', 'TabNet Multiclass', 
+                         'Logistic Regression Multiclass', 'SVM Multiclass']
     
     # Filtere nur Multiclass-Modelle
     multiclass_data = {model: models_data[model] for model in multiclass_models if model in models_data}
