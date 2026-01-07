@@ -1,7 +1,0 @@
-,precision,recall,balanced_accuracy,accuracy,f1_score
-XGBoost Binary,0.67,0.68,0.6829,,
-XGBoost Multiclass,0.4912,0.5053,0.5053,0.564,
-Random Forest Binary,0.69,0.72,0.6681,0.7827,0.8566
-Random Forest Multiclass,0.51,0.52,0.469,0.5865,
-TabNet Binary,0.66,0.65,0.6458,0.7708,0.8555
-TabNet Multiclass,0.48,0.45,0.4519,0.5519,

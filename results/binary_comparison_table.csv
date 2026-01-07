@@ -1,0 +1,6 @@
+,accuracy,balanced_accuracy,roc_auc,recall_class1,f1_score_class1
+XGBoost,0.81,0.6829,0.85,0.8746,0.88
+Random Forest,0.7946,0.7055,0.7867,0.8631,0.8681
+TabNet,0.7708,0.6458,0.82,0.8669,0.8555
+Logistic Regression,0.7,0.6991,0.75,0.6996,0.78
+SVM,0.73,0.6934,0.76,0.7567,0.81
