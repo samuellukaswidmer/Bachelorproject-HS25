@@ -88,16 +88,16 @@ def plot_binary_comparison(figsize=(16, 10)):
         ax.set_xticks(range(len(df)))
         ax.set_xticklabels(df.index, rotation=15, ha='right', fontsize=11)
         ax.grid(True, alpha=0.3, axis='y', linestyle='--')
-        ax.set_ylim([0, max(df[metric].max() * 1.2, 0.8)])
+        ax.set_ylim([0, max(df[metric].max() * 1.25, 0.85)])
         ax.axhline(y=0.5, color='red', linestyle=':', linewidth=1, alpha=0.5, label='Baseline (0.5)')
         if idx == 0:
-            ax.legend(fontsize=9)
+            ax.legend(fontsize=9, loc='upper left', bbox_to_anchor=(0, 1.02), framealpha=0.9)
     
     axes[5].axis('off')
     
     plt.suptitle('Binary Model Performance Comparison\nAccuracy, Balanced Accuracy, ROC AUC, Recall Class 1, F1 Score Class 1', 
                  fontsize=16, fontweight='bold', y=0.995)
-    plt.tight_layout()
+    plt.tight_layout(rect=[0, 0, 1, 0.98])  # Leave space at top for suptitle and legend
     
     return fig, axes
 
@@ -207,11 +207,11 @@ def plot_binary_grouped_bars(figsize=(14, 8)):
                  fontsize=16, fontweight='bold', pad=15)
     ax.set_xticks(x + width * (len(metrics) - 1) / 2)
     ax.set_xticklabels(df.index, fontsize=12, fontweight='bold')
-    ax.legend(loc='upper left', fontsize=11, framealpha=0.9)
+    ax.legend(loc='upper left', bbox_to_anchor=(0, 1.02), fontsize=11, framealpha=0.9, ncol=len(metrics))
     ax.grid(True, alpha=0.3, axis='y', linestyle='--')
-    ax.set_ylim([0, 1])
+    ax.set_ylim([0, 1.05])  # More space for legend
     
-    plt.tight_layout()
+    plt.tight_layout(rect=[0, 0, 1, 0.96])  # Leave space at top for legend
     
     return fig, ax
 
